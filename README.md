@@ -1,0 +1,1 @@
+# kursovaya_sky_pro
