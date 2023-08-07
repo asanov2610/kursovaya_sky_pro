@@ -32,7 +32,8 @@ class ListClass:
                 if item != {} and item["state"] == "EXECUTED":
                     new_content_list.append(item)
             self.sorted_list = sorted(new_content_list, key=lambda x: x["date"], reverse=True)
-            return self.sorted_list
+            actual_list = self.sorted_list[0:5]
+            return actual_list
 
 
     def get_slice_list(self):

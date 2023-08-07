@@ -62,7 +62,7 @@ class Data:
         """
         new_list = self.account.split()
         actual_string = new_list[-1]
-        return f'{new_list[0]} **{actual_string[-5:-1]}'
+        return f'{new_list[0]} **{actual_string[-4:]}'
 
 
     def get_hide_card_number(self):
@@ -77,7 +77,10 @@ class Data:
             new_list = self.card_number.split()
             if len(new_list) > 2:
                 actual_string = new_list[-1]
-                return f'{new_list[0]} {new_list[1]} {actual_string[:5]} {actual_string[5:7]}** **** {actual_string[-5:-1]}'
+                return f'{new_list[0]} {new_list[1]} {actual_string[:4]} {actual_string[4:6]}** **** {actual_string[-4:]}'
             else:
                 actual_string = new_list[-1]
-                return f'{new_list[0]} {actual_string[:5]} {actual_string[5:7]}** **** {actual_string[-5:-1]}'
+                if len(actual_string) == 16:
+                    return f'{new_list[0]} {actual_string[:4]} {actual_string[4:6]}** **** {actual_string[-4:]}'
+
+                return f'{new_list[0]} {actual_string[:4]} {actual_string[4:6]}** **** **** {actual_string[-4:]}'
